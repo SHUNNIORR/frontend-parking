@@ -1,0 +1,11 @@
+.create-card, .tickets{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+ .list-tickets{
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}

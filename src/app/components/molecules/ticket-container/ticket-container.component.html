@@ -1,0 +1,13 @@
+<div class="ticket">
+  <div>
+    <p>plate: </p>
+    <p>{{ticket.plate}}</p>
+  </div>
+  <div>
+    <p>type of vehicle: </p>
+    <p>{{ticket.typeOfVehicle}}</p>
+  </div>
+  <div>
+    <button (click)="closeTicket(ticket.plate)">Cerrar</button>
+  </div>
+</div>

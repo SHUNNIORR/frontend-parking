@@ -1,0 +1,16 @@
+<div class="home-container">
+  <div class="forms-container">
+    <div class="create-card">
+      <app-create-ticket-form></app-create-ticket-form>
+    </div>
+    <div class="close-card">
+
+    </div>
+    <div class="list-tickets">
+      <div class="tickets" *ngFor="let ticket of tickets ">
+        <app-ticket-container [ticket]="ticket">
+        </app-ticket-container>
+      </div>
+    </div>
+  </div>
+</div>
