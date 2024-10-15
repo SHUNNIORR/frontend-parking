@@ -1,0 +1,42 @@
+<div class="main-container">
+  <div class="form-container">
+    <form
+      class="form"
+      [formGroup]="listActiveTicketForm"
+      (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill">
+        <mat-label for="filterPlate">Filtrar por placa</mat-label>
+        <input
+          matInput
+          id="filterPlate"
+          formControlName="filterPlate"
+          type="text"
+          required />
+        <mat-error
+          *ngIf="
+            listActiveTicketForm.get('filterPlate')?.invalid &&
+            listActiveTicketForm.get('filterPlate')?.touched
+          ">
+          <small
+            *ngIf="
+              listActiveTicketForm.get('filterPlate')?.errors?.['required']
+            "
+            >Plate is required.</small
+          >
+        </mat-error>
+      </mat-form-field>
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="listActiveTicketForm.invalid">
+        Filtrar
+      </button>
+    </form>
+  </div>
+  <div class="list-tickets">
+    <div *ngFor="let ticket of tickets">
+      <app-ticket-container [ticket]="ticket"> </app-ticket-container>
+    </div>
+  </div>
+</div>

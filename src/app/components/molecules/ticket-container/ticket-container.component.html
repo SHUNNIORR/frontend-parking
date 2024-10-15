@@ -1,13 +1,22 @@
 <div class="ticket">
-  <div>
-    <p>plate: </p>
-    <p>{{ticket.plate}}</p>
+  <div class="main-row">
+    <div class="image">
+      <img src="../../../../assets/car-example.jpg" alt="" />
+    </div>
+    <div class="plate-text">
+      <h2>{{ ticket.plate }}</h2>
+      <p>Hora de llegada: 23:04:02 12/3/2024</p>
+    </div>
+    <div>
+      <p class="type-vehicle">{{ ticket.typeOfVehicle }}</p>
+    </div>
   </div>
-  <div>
-    <p>type of vehicle: </p>
-    <p>{{ticket.typeOfVehicle}}</p>
-  </div>
-  <div>
-    <button (click)="closeTicket(ticket.plate)">Cerrar</button>
+  <div class="close-button">
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="closeTicket(ticket.plate)">
+      Cerrar
+    </button>
   </div>
 </div>

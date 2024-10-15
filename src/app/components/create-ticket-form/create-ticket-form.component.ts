@@ -6,12 +6,15 @@ import { CreateTicketService } from 'src/app/services/create-ticket/create-ticke
 @Component({
   selector: 'app-create-ticket-form',
   templateUrl: './create-ticket-form.component.html',
-  styleUrls: ['./create-ticket-form.component.scss']
+  styleUrls: ['./create-ticket-form.component.scss'],
 })
 export class CreateTicketFormComponent {
   createTicketForm!: FormGroup;
 
-  constructor(private fb: FormBuilder, private createTicketService:CreateTicketService) {
+  constructor(
+    private fb: FormBuilder,
+    private createTicketService: CreateTicketService
+  ) {
     this.createTicketForm = this.fb.group({
       plate: ['', [Validators.required, Validators.minLength(6)]],
       typeOfVehicle: ['', [Validators.required]],
@@ -19,14 +22,16 @@ export class CreateTicketFormComponent {
   }
 
   onSubmit(): void {
-    console.log(this.createTicketForm)
-    this.createTicketService.createTicket(this.createTicketForm.value).subscribe({
-      next:(res:any)=>{
-        console.log(res)
-      },
-      error:(error:HttpErrorResponse)=>{
-        console.log(error)
-      }
-    })
+    console.log(this.createTicketForm);
+    this.createTicketService
+      .createTicket(this.createTicketForm.value)
+      .subscribe({
+        next: res => {
+          console.log(res);
+        },
+        error: (error: HttpErrorResponse) => {
+          console.log(error);
+        },
+      });
   }
 }

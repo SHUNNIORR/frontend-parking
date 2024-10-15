@@ -4,7 +4,7 @@ import {
   HttpHandler,
   HttpEvent,
   HttpInterceptor,
-  HttpErrorResponse
+  HttpErrorResponse,
 } from '@angular/common/http';
 import { catchError, finalize, Observable, throwError } from 'rxjs';
 
@@ -13,15 +13,20 @@ import { Router } from '@angular/router';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
+  constructor(
+    private router: Router,
+    private authService: AuthService
+  ) {}
 
-  constructor(private router: Router, private authService:AuthService) {}
-
-  intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    const token: string|null = this.authService.getTokenFromLocal();
+  intercept(
+    request: HttpRequest<unknown>,
+    next: HttpHandler
+  ): Observable<HttpEvent<unknown>> {
+    const token: string | null = this.authService.getTokenFromLocal();
     if (token) {
       request = request.clone({
         setHeaders: {
-         'x-token': `${token}`,
+          'x-token': `${token}`,
         },
       });
       console.log('Request', request);
@@ -33,13 +38,13 @@ export class AuthInterceptor implements HttpInterceptor {
           this.authService.logout();
           this.router.navigate(['/login']);
         }
-        return throwError((error:HttpErrorResponse)=>{
-          console.log('REQUESTTTT:', request)
-          console.log(error)
+        return throwError((error: HttpErrorResponse) => {
+          console.log('REQUESTTTT:', request);
+          console.log(error);
         });
       }),
-      finalize(()=>{
-        console.log('')
+      finalize(() => {
+        console.log('');
       })
     );
   }

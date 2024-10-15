@@ -4,8 +4,35 @@
   align-items: center;
   gap: 12px;
 }
- .list-tickets{
+
+
+.home-container{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-container{
+  width: 1000px;
+  height: 700px;
+  display: flex;
+  padding: 12px;
+  border-radius: 1.88vw;
+  background-color: #ffffff;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+.left-content{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+.list-tickets{
+  width: 50%;
   display: flex;
   flex-direction: column;
   gap: 12px;
+
+  overflow-y: auto;
 }

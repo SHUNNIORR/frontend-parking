@@ -3,15 +3,14 @@ export interface LoginUser {
   password: string;
 }
 export interface User {
-    name:   string;
-    email:  string;
-    role:   string;
-    status: boolean;
-    google: boolean;
-    uid:    string;
+  name: string;
+  email: string;
+  role: string;
+  status: boolean;
+  google: boolean;
+  uid: string;
 }
 export interface LoginUserResponse {
-    user:  User;
-    token: string;
+  user: User;
+  token: string;
 }
-

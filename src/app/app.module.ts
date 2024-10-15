@@ -11,12 +11,16 @@ import { HomeComponent } from './pages/home/home.component';
 import { CreateTicketFormComponent } from './components/create-ticket-form/create-ticket-form.component';
 import { CloseTicketFormComponent } from './components/close-ticket-form/close-ticket-form.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldModule} from '@angular/material/form-field';
+import {
+  MAT_FORM_FIELD_DEFAULT_OPTIONS,
+  MatFormFieldModule,
+} from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { TicketContainerComponent } from './components/molecules/ticket-container/ticket-container.component';
 import { AuthInterceptor } from './core/auth/interceptors/auth.interceptor';
+import { ListActiveTicketsComponent } from './components/list-active-tickets/list-active-tickets.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +28,8 @@ import { AuthInterceptor } from './core/auth/interceptors/auth.interceptor';
     HomeComponent,
     CreateTicketFormComponent,
     CloseTicketFormComponent,
-    TicketContainerComponent
+    TicketContainerComponent,
+    ListActiveTicketsComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,11 +43,17 @@ import { AuthInterceptor } from './core/auth/interceptors/auth.interceptor';
     MatButtonModule,
     MatIconModule,
   ],
-  providers: [{provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}}, {
-    provide: HTTP_INTERCEPTORS,
-    useClass: AuthInterceptor,
-    multi: true
-  }],
-  bootstrap: [AppComponent]
+  providers: [
+    {
+      provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,
+      useValue: { appearance: 'outline' },
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

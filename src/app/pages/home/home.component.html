@@ -1,16 +1,10 @@
 <div class="home-container">
-  <div class="forms-container">
-    <div class="create-card">
+  <div class="card-container">
+    <div class="left-content">
       <app-create-ticket-form></app-create-ticket-form>
     </div>
-    <div class="close-card">
-
-    </div>
     <div class="list-tickets">
-      <div class="tickets" *ngFor="let ticket of tickets ">
-        <app-ticket-container [ticket]="ticket">
-        </app-ticket-container>
-      </div>
+      <app-list-active-tickets></app-list-active-tickets>
     </div>
   </div>
 </div>

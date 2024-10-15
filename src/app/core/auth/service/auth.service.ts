@@ -5,18 +5,20 @@ import { LoginUser, LoginUserResponse } from '../models/login.interface';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-  isAuthenticated: boolean = true;
-  readonly API_URL = environment.url
-  constructor(private http:HttpClient) {
-  }
+  isAuthenticated = true;
+  readonly API_URL = environment.url;
+  constructor(private http: HttpClient) {}
 
-  login(userData: LoginUser): Observable<LoginUserResponse>{
-    return this.http.post<LoginUserResponse>(`${this.API_URL}/auth/login`, userData)
+  login(userData: LoginUser): Observable<LoginUserResponse> {
+    return this.http.post<LoginUserResponse>(
+      `${this.API_URL}/auth/login`,
+      userData
+    );
   }
-  logout(){
+  logout() {
     this.deleteTokenFromLocal();
     localStorage.removeItem('token');
   }
@@ -25,9 +27,9 @@ export class AuthService {
     localStorage.setItem('token', jwt);
   }
   deleteTokenFromLocal(): void {
-    localStorage.removeItem('token')
+    localStorage.removeItem('token');
   }
-  getTokenFromLocal():string|null {
+  getTokenFromLocal(): string | null {
     return localStorage.getItem('token');
   }
 }

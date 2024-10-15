@@ -6,20 +6,48 @@
     <form class="form" [formGroup]="createTicketForm" (ngSubmit)="onSubmit()">
       <mat-form-field appearance="fill">
         <mat-label for="plate">Placa</mat-label>
-        <input matInput id="plate" formControlName="plate" type="plate" required />
-        <mat-error *ngIf="createTicketForm.get('plate')?.invalid && createTicketForm.get('plate')?.touched">
-          <small *ngIf="createTicketForm.get('plate')?.errors?.['required']">Email is required.</small>
+        <input
+          matInput
+          id="plate"
+          formControlName="plate"
+          type="plate"
+          required />
+        <mat-error
+          *ngIf="
+            createTicketForm.get('plate')?.invalid &&
+            createTicketForm.get('plate')?.touched
+          ">
+          <small *ngIf="createTicketForm.get('plate')?.errors?.['required']"
+            >Email is required.</small
+          >
         </mat-error>
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label for="typeOfVehicle">Tipo de vehículo</mat-label>
-        <input matInput id="typeOfVehicle" formControlName="typeOfVehicle" type="typeOfVehicle" required />
+        <input
+          matInput
+          id="typeOfVehicle"
+          formControlName="typeOfVehicle"
+          type="typeOfVehicle"
+          required />
         <mat-error
-          *ngIf="createTicketForm.get('typeOfVehicle')?.invalid && createTicketForm.get('typeOfVehicle')?.touched">
-          <small *ngIf="createTicketForm.get('typeOfVehicle')?.errors?.['required']">typeOfVehicle is required.</small>
+          *ngIf="
+            createTicketForm.get('typeOfVehicle')?.invalid &&
+            createTicketForm.get('typeOfVehicle')?.touched
+          ">
+          <small
+            *ngIf="createTicketForm.get('typeOfVehicle')?.errors?.['required']"
+            >typeOfVehicle is required.</small
+          >
         </mat-error>
       </mat-form-field>
-      <button mat-button color="primary" type="submit" [disabled]="createTicketForm.invalid">Submit</button>
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="createTicketForm.invalid">
+        Submit
+      </button>
     </form>
   </div>
 </div>

@@ -1,8 +1,9 @@
-export interface ticket {
-  plate: string;
-  typeOfVehicle: string;
+export interface ListActiveTicketsResponse {
+  total: number;
+  tickets: Ticket[];
 }
-export interface TicketResponse {
+
+export interface Ticket {
   plate: string;
   typeOfVehicle: string;
   arrivalTime: Date;

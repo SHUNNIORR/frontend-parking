@@ -1,7 +1,9 @@
 <div class="main-container">
   <div class="form-card-container">
     <div class="info-container">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Parking_icon.svg/2048px-Parking_icon.svg.png" />
+      <img
+        alt="parking icon"
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Parking_icon.svg/2048px-Parking_icon.svg.png" />
     </div>
     <div class="form-container">
       <div class="form-card">
@@ -12,20 +14,50 @@
           <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
             <mat-form-field appearance="fill">
               <mat-label for="email">Email</mat-label>
-              <input matInput id="email" formControlName="email" type="email" required />
-              <mat-error *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
-                <small *ngIf="loginForm.get('email')?.errors?.['required']">Email is required.</small>
-                <small *ngIf="loginForm.get('email')?.errors?.['email']">Invalid email format.</small>
+              <input
+                matInput
+                id="email"
+                formControlName="email"
+                type="email"
+                required />
+              <mat-error
+                *ngIf="
+                  loginForm.get('email')?.invalid &&
+                  loginForm.get('email')?.touched
+                ">
+                <small *ngIf="loginForm.get('email')?.errors?.['required']"
+                  >Email is required.</small
+                >
+                <small *ngIf="loginForm.get('email')?.errors?.['email']"
+                  >Invalid email format.</small
+                >
               </mat-error>
             </mat-form-field>
             <mat-form-field appearance="fill">
               <mat-label for="email">Password</mat-label>
-              <input matInput id="password" formControlName="password" type="password" required />
-              <mat-error *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
-                <small *ngIf="loginForm.get('password')?.errors?.['required']">Password is required.</small>
+              <input
+                matInput
+                id="password"
+                formControlName="password"
+                type="password"
+                required />
+              <mat-error
+                *ngIf="
+                  loginForm.get('password')?.invalid &&
+                  loginForm.get('password')?.touched
+                ">
+                <small *ngIf="loginForm.get('password')?.errors?.['required']"
+                  >Password is required.</small
+                >
               </mat-error>
             </mat-form-field>
-            <button mat-button color="primary" type="submit" [disabled]="loginForm.invalid">Submit</button>
+            <button
+              mat-button
+              color="primary"
+              type="submit"
+              [disabled]="loginForm.invalid">
+              Submit
+            </button>
           </form>
         </div>
       </div>
